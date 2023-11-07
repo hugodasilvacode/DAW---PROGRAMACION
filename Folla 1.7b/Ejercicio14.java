@@ -1,0 +1,25 @@
+/*
+Programa que suma 2 matrices 2 x 2, sumando cada elemento dunha matriz co correspondente da
+outra matriz.
+*/
+
+public class Ejercicio14 {
+    public static void main(String[] args) {
+
+        int [][] A = new int[2][2];
+        int [][] B = new int[2][2];
+        int [][] AB = new int[2][2];
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                A[i][j] = (int) (Math.random() * 9);
+                B[i][j] = (int) (Math.random() * 9);
+                AB[i][j] = A[i][j] + B[i][j];
+            }
+        }
+
+        System.out.println(A[0][0]+","+A[0][1]+"   "+B[0][0]+","+B[0][1]+"   "+AB[0][0]+","+AB[0][1]);
+        System.out.println(A[1][0]+","+A[1][1]+" + "+B[1][0]+","+B[1][1]+" = "+AB[1][0]+","+AB[1][1]);
+
+    }
+}
