@@ -17,6 +17,14 @@ public class Bombilla {
         }
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
     public void setPotencia(int potencia) {
         potenciaTotal -= this.potencia;
         this.potencia = potencia;
@@ -43,6 +51,15 @@ public class Bombilla {
         if ((this.potencia-h)>=2) {
             this.potencia -= h;
             potenciaTotal -= h;
+        }
+    }
+
+    public static String comparaBombilla(Bombilla bomb1, Bombilla bomb2) {
+        if (bomb1.getPotencia()>bomb2.getPotencia()) {
+            return bomb1.getNome();
+        }
+        else {
+            return bomb2.getNome();
         }
     }
 }
