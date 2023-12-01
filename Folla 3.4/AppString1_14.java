@@ -24,7 +24,7 @@ public class AppString1_14 {
                     break;
                 case "d":
                     String reverse = "";
-                    for (int i = frase.length(); i >= 0; i--) {
+                    for (int i = frase.length()-1; i >= 0; i--) {
                         reverse += frase.charAt(i);
                     }
                     frase = reverse;
