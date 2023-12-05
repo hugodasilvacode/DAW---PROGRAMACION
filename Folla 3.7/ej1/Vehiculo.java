@@ -30,4 +30,11 @@ class Vehiculo {
         this.alquilado = alquilado;
     }
 
+    @Override
+    public String toString() {
+        return "matricula=" + matricula + ", alquilado=" + alquilado;
+    }
+
+    
+
 }

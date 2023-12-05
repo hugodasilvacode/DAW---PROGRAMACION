@@ -8,11 +8,12 @@ public class Turismo extends Vehiculo{
     public static int numTurismos;
     public static int numTurAlquilados;
     
-    public Turismo(String matricula, Boolean alquilado, Double precioKm, int kmAlquiler, int kmDevolucion) {
+    public Turismo(String matricula, Boolean alquilado, Double precioKm, int kmAlquiler) {
         super(matricula, alquilado);
         this.precioKm = precioKm;
         this.kmAlquiler = kmAlquiler;
-        this.kmDevolucion = kmDevolucion;
+        this.kmDevolucion = kmAlquiler;
+        numTurismos++;
     }
 
     public Turismo() {
@@ -20,6 +21,7 @@ public class Turismo extends Vehiculo{
         this.precioKm = 0.3;
         this.kmAlquiler = 0;
         this.kmDevolucion = 0;
+        numTurismos++;
     }
 
     public Double getPrecioKm() {
@@ -40,17 +42,40 @@ public class Turismo extends Vehiculo{
     public void setKmDevolucion(int kmDevolucion) {
         this.kmDevolucion = kmDevolucion;
     }
+    public static int getNumTurismos() {
+        return numTurismos;
+    }
+    public static int getNumTurAlquilados() {
+        return numTurAlquilados;
+    }
     
     public void alugar() {
         if (isAlquilado()) {
             System.out.println("Este turismo ya está alquilado");
         }
         else {
+            numTurAlquilados++;
             System.out.println("Ha alquilado el turismo. Km: " + kmAlquiler);
         }
     }
 
-    
+    public void devolver(int kmDevolucion) {
+        if (isAlquilado()) {
+            this.setKmDevolucion(kmDevolucion);
+            double prezoPagar = precioKm * (kmDevolucion - kmAlquiler);
+            System.out.println("Ten que pagar "+prezoPagar+" euros.");
+            numTurAlquilados--;
+            this.setAlquilado(false);
+        }
+        else {
+            System.out.println("No puede devolver un coche que no ha alquilado");
+        }
+    }
 
+    @Override
+    public String toString() {
+        String superString = super.toString();
+        return superString + ", precioKm=" + precioKm + ", kmAlquiler=" + kmAlquiler + ", kmDevolucion=" + kmDevolucion;
+    }
 
 }
