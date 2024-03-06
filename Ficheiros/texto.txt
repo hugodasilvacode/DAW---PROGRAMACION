@@ -1,0 +1,4 @@
+Escribe un programa que amañe un ficheiro de texto, quitando espazos
+Baleiros e poñendo a primeira letra de cada liña en maiúscula.
+Para isto crea un ficheiro temporal (miraFile.createTempFile()),
+Que logo sobreescribirá o ficheiro orixinal.
