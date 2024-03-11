@@ -3,13 +3,13 @@
  */
 public class Actividade {
     
-    private String codActividade;
+    private int codActividade;
     private String nomeActividade;
     private int horasSemanais;
     private int prezoActividade;
     private String salaActividade;
 
-    public Actividade(String codActividade, String nomeActividade, int horasSemanais, int prezoActividade, String salaActividade) {
+    public Actividade(int codActividade, String nomeActividade, int horasSemanais, int prezoActividade, String salaActividade) {
         this.codActividade = codActividade;
         this.nomeActividade = nomeActividade;
         this.horasSemanais = horasSemanais;
@@ -17,11 +17,11 @@ public class Actividade {
         this.salaActividade = salaActividade;
     }
 
-    public String getCodActividade() {
+    public int getCodActividade() {
         return codActividade;
     }
 
-    public void setCodActividade(String codActividade) {
+    public void setCodActividade(int codActividade) {
         this.codActividade = codActividade;
     }
 
