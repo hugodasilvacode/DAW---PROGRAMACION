@@ -89,12 +89,12 @@ public class AppSociocultural {
                         asignarActividadeSocio(arrayActividades,arraySocios);
                         break;
                     case "2":
-                        desasignarActividadeSocion(arrayActividades,arraySocios);
+                        desasignarActividadeSocio(arrayActividades,arraySocios);
                         break;
                 }
                 break;
             case "4":
-                mostrarActividadesSocio(arraySocios);
+                mostrarActividadesSocio(arrayActividades,arraySocios);
                 break;
         }
     }
@@ -262,6 +262,77 @@ public class AppSociocultural {
             System.out.println("No existe ningun socio con este codigo");
         }
         
+
+    }
+
+    public static void desasignarActividadeSocio(ArrayList<Actividade> arrayActividades, ArrayList<Socio> arraySocios) {
+
+        boolean existeSocio = false;
+        boolean existeActividade = false;
+        boolean estaInscrito = false;
+        
+        String codSocio = JOptionPane.showInputDialog("Codigo de socio");
+        int codActividade = Integer.parseInt(JOptionPane.showInputDialog("Codigo de actividade"));
+
+        for (Socio socio : arraySocios) {
+            if (socio.getCodSocio().equals(codSocio)) {
+                existeSocio = true;
+
+                for (Actividade actividade : arrayActividades) {
+                    if (actividade.getCodActividade() == codActividade) {
+                        existeActividade = true;
+
+                        int[] actividadesInscrito = socio.getActividadesInscrito();
+                        for (int actividadeInscrito : actividadesInscrito) {
+                            if (actividadeInscrito == codActividade) {
+                                estaInscrito = true;
+                                actividadeInscrito = 0; /*COMPROBAR */
+                                break;
+                            }
+                        }
+                        if (!estaInscrito) {
+                            System.out.println("Este socio no está incrito en esta actividad");
+                        }
+                        break;
+                    }
+                }
+                if (!existeActividade) {
+                    System.out.println("No existe ninguna actividad con este codigo");
+                }
+                break;
+            }
+        }
+        if (!existeSocio) {
+            System.out.println("No existe ningun socio con este codigo");
+        }
+    }
+
+    public static void mostrarActividadesSocio(ArrayList<Actividade> arrayActividades, ArrayList<Socio> arraySocios) {
+
+        boolean existe = false;
+        
+        String codSocio = JOptionPane.showInputDialog("Codigo de socio");
+
+        for (Socio socio : arraySocios) {
+            if (socio.getCodSocio().equals(codSocio)) {
+                existe = true;
+
+                int[] actividadesInscrito = socio.getActividadesInscrito();
+                for (int actividadeInscrito : actividadesInscrito) {
+                    for (Actividade actividade : arrayActividades) {
+                        if (actividade.getCodActividade() == actividadeInscrito) {
+                            actividade.toString();
+                            break;
+                        }
+                    }
+                }
+                break;
+            }
+        }
+
+        if (!existe) {
+            System.out.println("No existe ningun socio con este codigo");
+        }
 
     }
 }
