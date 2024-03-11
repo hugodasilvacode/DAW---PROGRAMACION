@@ -249,20 +249,17 @@ public class AppSociocultural {
                         if (!estaInscrito) {
                             socio.setActividadesInscrito(codActividade);
                         }
-
                         break;
                     }
                 }
-
+                if (!existeActividade) {
+                    System.out.println("No existe ninguna actividad con este codigo");
+                }
                 break;
             }
         }
-        
         if (!existeSocio) {
             System.out.println("No existe ningun socio con este codigo");
-        }
-        if (!existeActividade) {
-            System.out.println("No existe ninguna actividad con este codigo");
         }
         
 

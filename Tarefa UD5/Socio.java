@@ -67,11 +67,18 @@ public class Socio {
     }
 
     public void setActividadesInscrito(int indiceActividade) {
+        boolean libres = false;
+
         for (int i = 0; i < actividadesInscrito.length; i++) {
             if (actividadesInscrito[i] == 0) {
                 actividadesInscrito[i] = indiceActividade;
+                libres = true;
                 break;
             }
+        }
+
+        if (!libres) {
+            System.out.println("El usuario ya cursa 3 actividades");
         }
     }
 
